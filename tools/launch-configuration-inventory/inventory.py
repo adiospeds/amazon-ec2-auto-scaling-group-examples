@@ -137,8 +137,10 @@ def get_organization_accounts(credentials):
 # Gets Regions Enabled for Account
 def get_regions(account_id, credentials):
     logger.info('Getting a list of regions enabled for account {}.'.format(account_id))
-
-    regions = []
+    regions = [ 'us-east-1', 'us-east-2', 'ap-southeast-1', 'eu-west-2', 'ap-south-1', 'eu-west-3' ]
+    print(regions)
+    return regions
+'''
     try:
         ec2 = boto3.client('ec2', **credentials)
 
@@ -152,8 +154,7 @@ def get_regions(account_id, credentials):
     except ClientError as e:
         message = 'Error getting list of regions: {}'.format(e)
         logger.error(message)
-    
-    return regions 
+'''
 
 # Gets Launch Configurations in Account and Region
 def get_launch_configurations(account_id, region, credentials):
